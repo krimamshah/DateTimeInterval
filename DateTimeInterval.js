@@ -1,18 +1,6 @@
 
-
-//var startDate1;
-//var endDate2;
-
-//document.getElementById("demo2").innerHTML= myURLFunction();
-//console.log("MyUrlFunction is complete");
-//fetchDates();
-//console.log("fetchDates is complete");
-//document.getElementById("timeinterval").innerHTML = startDate1;
+// fetch dates from text boxes.
 function fetchDates(){
- 
-  //window.location.href = "http://myapp.com";
- // URL myURL = new URL("http://myapp.com/");
-  
  
   document.getElementById("Option1").style.visibility = "visible";
   document.getElementById("Option2").style.visibility = "visible";
@@ -22,12 +10,8 @@ function fetchDates(){
   
   
   var startDate = (document.getElementById("fromDate").value +"T"+ document.getElementById("fromTime").value);
-  //document.getElementById("demo2").innerHTML = startDate;
-  //var startDate1 = new Date(startDate);
-  var startDate1 = new moment(startDate);//.format("YYY-MM-DD h:mm:ss");
-  //window.alert(startDate1);
+  var startDate1 = new moment(startDate);
   var endDate =(document.getElementById("toDate").value+"T"+document.getElementById("toTime").value);
-  //var endDate2 = new Date(endDate);
   var endDate2 = new moment(endDate);
   var duration = moment.duration(endDate2.diff(startDate1));
   var days = Math.floor(duration.asDays());
@@ -40,6 +24,7 @@ function fetchDates(){
   
 }
 
+//Display options on the basis of date time interval.
 function displayOptions(days){
 
         
@@ -62,33 +47,6 @@ function displayOptions(days){
   }
 }
 
-
-
-/**Date.daysBetween = function( date1, date2 ) {
-  //Get 1 day in milliseconds
-  
-  var one_day=1000*60*60*24;
-
-  // Convert both dates to milliseconds
-  var date1_ms = date1.getTime();
-  var date2_ms = date2.getTime();
-
-  // Calculate the difference in milliseconds
-  var difference_ms = date2_ms - date1_ms;
-  //take out milliseconds
-  difference_ms = difference_ms/1000;
-  var seconds = Math.floor(difference_ms % 60);
-  difference_ms = difference_ms/60; 
-  var minutes = Math.floor(difference_ms % 60);
-  difference_ms = difference_ms/60; 
-  var hours = Math.floor(difference_ms % 24);  
-  var days = Math.floor(difference_ms/24);
-  displayOptions(days);
-  	
-  
-  return days + ' days ' + hours + ' hours ' + minutes + ' minutes';
-}
-*/
  
 
 
@@ -115,11 +73,8 @@ function myURLFunction() {
 	document.getElementById("toDate").value = mainendDate;
 	document.getElementById("toTime").value = mainendTime;
     fetchDates();
-    //return
-	//document.getElementById("demo2").innerHTML="startDate=\n"+mainstartDate+" startTime=\n" + mainstartTime+" Enddate=\n"+mainendDate+" mainendTime=\n"+mainendTime;
 }
 
 
 
 
-//document.getElementById("demo1").innerHTML = Date.daysBetween(startDate1, endDate2) ;
